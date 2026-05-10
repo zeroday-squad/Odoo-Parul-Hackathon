@@ -56,8 +56,8 @@ export default function CommunityPage() {
   if (isLoading) return <LoadingSpinner />;
 
   return (
-    <div>
-      <PageHeader title="Community" subtitle="Discover trips shared by other travelers" />
+  <div>
+    <PageHeader title="Community" subtitle="Discover trips shared by other travelers" />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Feed */}
