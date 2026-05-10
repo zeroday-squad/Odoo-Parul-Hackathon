@@ -8,6 +8,9 @@ from .models import Expense, ChecklistItem, Note
 from .serializers import ExpenseSerializer, ChecklistItemSerializer, NoteSerializer
 from trips.models import Trip
 
+
+#views functions 
+
 class ExpenseListCreateView(generics.ListCreateAPIView):
     serializer_class = ExpenseSerializer
     permission_classes = [IsAuthenticated]
@@ -25,7 +28,7 @@ class ExpenseDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Expense.objects.filter(trip__user=self.request.user)
-
+    
 class BudgetView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -106,3 +109,4 @@ class NoteDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Note.objects.filter(trip__user=self.request.user)
+
